@@ -1,0 +1,41 @@
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+let books = [
+  { id: 1, title: "Python Basics", author: "John Doe" },
+  { id: 2, title: "Web Development", author: "Jane Smith" }
+];
+
+// Get all books
+app.get("/books", (req, res) => {
+  res.json(books);
+});
+
+// Add a new book
+app.post("/books", (req, res) => {
+  const { title, author } = req.body;
+
+  const newBook = {
+    id: books.length + 1,
+    title,
+    author
+  };
+
+  books.push(newBook);
+  res.json(newBook);
+});
+
+// Delete a book
+app.delete("/books/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  books = books.filter(book => book.id !== id);
+  res.json({ message: "Book deleted" });
+});
+
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});
