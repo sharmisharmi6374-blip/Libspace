@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Fit Track Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Fit Track</h1>
+
+    <h2>Hello {{ name }}! 👋</h2>
+
+    <div class="card">
+
+        <h3>Your Fitness Details</h3>
+
+        <p><b>Age:</b> {{ age }}</p>
+        <p><b>Weight:</b> {{ weight }} kg</p>
+        <p><b>Height:</b> {{ height }} cm</p>
+        <p><b>Goal:</b> {{ goal }}</p>
+
+        <h3>BMI: {{ bmi }}</h3>
+
+        <p>
+            <b>Status:</b> {{ status }}
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🏃 AI Workout Recommendation</h3>
+
+        <ul>
+            {% for exercise in workout %}
+            <li>{{ exercise }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🥗 AI Diet Recommendation</h3>
+
+        <ul>
+            {% for food in diet %}
+            <li>{{ food }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <a href="/">
+        <button>Check Again</button>
+    </a>
+
+</div>
+
+</body>
+</html>
