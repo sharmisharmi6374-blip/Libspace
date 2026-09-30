@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Fit Track</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Fit Track</h1>
+
+    <p>Personalized AI Fitness Recommendation System</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Age</label>
+        <input type="number" name="age" required>
+
+        <label>Weight (kg)</label>
+        <input type="number" step="0.1" name="weight" required>
+
+        <label>Height (cm)</label>
+        <input type="number" step="0.1" name="height" required>
+
+        <label>Fitness Goal</label>
+
+        <select name="goal" required>
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Muscle Gain">Muscle Gain</option>
+            <option value="General Fitness">General Fitness</option>
+        </select>
+
+        <button type="submit">
+            Get AI Fitness Plan
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
